@@ -48,6 +48,8 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
- gem 'pg_search'
+gem 'debugger', group: [:development, :test]
+gem 'pg_search'
 
+gem 'simple_form'
+gem 'country_select'
