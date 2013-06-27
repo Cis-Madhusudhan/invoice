@@ -56,7 +56,7 @@ class  RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    debugger
+   
     resource.destroy
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
     set_flash_message :notice, :destroyed if is_navigational_format?
@@ -121,7 +121,7 @@ class  RegistrationsController < Devise::RegistrationsController
   end
   
   def sign_up_params
-  	debugger
+
     devise_parameter_sanitizer.for(:sign_up)
   end
  
