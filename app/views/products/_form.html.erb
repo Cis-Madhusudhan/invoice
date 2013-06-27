@@ -1,0 +1,62 @@
+<%= simple_form_for @product do |f| %>
+<div class="span4">
+  <%= f.input :product_name %>
+  <%= f.input :quantity %>
+  <%= f.input :unit_cost %>
+  <div class='my_div'>
+		<a href="#" class="marker"title="Product price will be change with client's currency by online currency converter."><%= image_tag 'lifeguard.png'%></a>
+	</div>
+
+	<div id='inline-block'>
+		<%= check_box_tag 'manage inventory', 'accepted', false%>
+		<%= label_tag 'manage inventory'%>
+		<div class='my_div'>
+			<a href="#" class="marker"title="You can manage the availability of your stock and can set the volume of the available stock for any given product. The volume is adjusted automatically while adding the product in your invoices. You can also add/edit your current stock volume in future."><%= image_tag 'lifeguard.png'%></a>
+		</div>
+	</div>
+<hr />
+	<div id='display-none'>
+		<%= f.input :current_stock %>
+	</div>
+	<div id='display-none'>
+		<p>Set exchange rate here in next task</p>
+	</div>
+	<%= f.button :submit %>
+
+</div>
+
+<div class="span4">
+  <%= f.input :tax_id %>
+</div>
+
+<div class="span4">
+
+  <%= f.input :product_description,as: :text %>
+ 	<button id='exchange-rate' class="btn btn-primary" type="button">Set Exchange Rate</button>
+</div> 
+
+<% end %>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('#manage_inventory').change(function(){
+	        if (this.checked) {
+	            $('#display-none').show('slow');
+	        }
+	        else {
+	            $('#display-none').hide('slow');
+	        }                   
+	    });
+
+  $(".marker").tooltip({placement: 'right'});
+
+  $("#exchange-rate").click(function(){
+  	$('#display-none').show('slow');
+  });
+
+});
+</script>
+

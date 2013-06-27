@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product Name:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Unit Cost:</strong>
+  <%= @product.unit_cost %>
+</p>
+
+<p>
+  <strong>Product Description:</strong>
+  <%= @product.product_description %>
+</p>
+
+<p>
+  <strong>Tax Id:</strong>
+  <%= @product.tax_id %>
+</p>
+
+<p>
+  <strong>Current Stock:</strong>
+  <%= @product.current_stock %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

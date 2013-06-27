@@ -1,0 +1,35 @@
+@import "stubs/variables_overrides.css.less";
+
+.footer{
+ height:100px;
+ margin-top:-40px;
+ background-color: #1B1B1B;
+}
+
+.podbar {
+  bottom:0;
+  position:relative;
+  z-index:150;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+
+  height: 130px;
+
+  background-color: #000000;
+  width: 100%;
+}
+
+#display-none{
+	display: none
+}
+
+#inline-block{
+	display: inline-block;
+}
+.inline-state{
+	display:inline;
+}
+abbr .required{
+		color:#EC6B16;
+  }
