@@ -32,15 +32,20 @@ class  RegistrationsController < Devise::RegistrationsController
   def edit
     render :edit
   end
-
+ 
   # PUT /resource
   # We need to use a copy of the resource because we don't want to change
   # the current user in place.
   def update
+
+    if current_user.provider.present?
+     params[:user].delete("current_password")
+     params[:user].delete("password")
+    end
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
-
-    if resource.update_with_password(account_update_params)
+ 
+    if resource.update_attributes(account_update_params)
       if is_navigational_format?
         flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
           :update_needs_confirmation : :updated
@@ -53,6 +58,21 @@ class  RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
+
+
+  # def update
+  #   # Override Devise to use update_attributes instead of update_with_password.
+  #   # This is the only change we make.
+  #   if resource.update_attributes(params[resource_name])
+  #     set_flash_message :notice, :updated
+  #     # Line below required if using Devise >= 1.2.0
+  #     sign_in resource_name, resource, :bypass => true
+  #     redirect_to after_update_path_for(resource)
+  #   else
+  #     clean_up_passwords(resource)
+  #     render_with_scope :edit
+  #   end
+  # end
 
   # DELETE /resource
   def destroy
@@ -126,6 +146,7 @@ class  RegistrationsController < Devise::RegistrationsController
   end
  
   def account_update_params
+    debugger
     devise_parameter_sanitizer.for(:account_update)
   end
   def configure_permitted_parameters
@@ -133,7 +154,7 @@ class  RegistrationsController < Devise::RegistrationsController
         u.permit(:username, :contact_name,:company,:email, :password, :password_confirmation, :terms_and_conditions)
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
-        u.permit(:username, :contact_name,:company,:email, :password, :current_password, :terms_and_conditions)
+        u.permit(:username, :contact_name,:company,:email, :password, :current_password, :terms_and_conditions,:business_name, :businesss_address, :business_phone, :password_confirmation)
     end
   end
 end

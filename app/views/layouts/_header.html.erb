@@ -18,8 +18,23 @@
        <a class="brand" href="/">TOUR</a>
        <a class="brand" href="/">FAQ'S</a>
        <a class="brand" href="/">PRICING & SIGNUP</a>
-       <p align="right">
+
+      
+      
         <% if current_user %>
+        <%#= link_to 'MyProfile', user_home_index_path %>
+         <div class="btn-group">
+            <a class="btn dropdown-action" data-toggle="dropdown" href="#">
+              Settings
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+              <li><%= link_to 'MyProfile', user_home_index_path%></li>
+              <li><%#= link_to "Edit", edit_user_registration_path(current_user) %></li>
+            </ul>
+          </div>
+         <p align="right">  
         <%= link_to 'Logout', destroy_user_session_path, :method => :delete %> <br></br>
         
         <% else %>

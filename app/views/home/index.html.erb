@@ -1,6 +1,9 @@
 <%if current_user%>
 <h1>
 Welcome </h1>
+</br>
+
+<%#= link_to "Edit", edit_user_registration_path(current_user) %>
 <%else%>
 <div class="jumbotron">
   <% if user_signed_in? %>
