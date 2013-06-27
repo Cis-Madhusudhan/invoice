@@ -3,20 +3,21 @@
       <div class="container">
  
        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-       </a>
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+        </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
 
 
-       <a class="brand" href="/">HOME</a>
-       <a class="brand" href="/">link1</a>
-       <a class="brand" href="/plans"> link2</a>
-       
-      <a class="brand" href="/home/contacts">link3</a>
+       <a class="brand" href="/"><%= image_tag('logo.png')  %></a>
+
+       <a class="brand" href="/">SERVICES</a>
+       <a class="brand" href="/">TOUR</a>
+       <a class="brand" href="/">FAQ'S</a>
+       <a class="brand" href="/">PRICING & SIGNUP</a>
        <p align="right">
         <% if current_user %>
         <%= link_to 'Logout', destroy_user_session_path, :method => :delete %> <br></br>
