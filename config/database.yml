@@ -69,11 +69,11 @@
     password: 
 
 
-production:
-  database: invoice_signup_production
-  password: cisiN108
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  port: 5432
-  username: postgres
+  production:
+    database: invoice_signup_production
+    password: cisiN108
+    adapter: postgresql
+    encoding: unicode
+    host: localhost
+    port: 5432
+    username: postgres

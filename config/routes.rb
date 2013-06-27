@@ -6,50 +6,50 @@ InvoiceSignup::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
-   devise_for :users, :controllers => {:registrations => "registrations",:omniauth_callbacks => "users/omniauth_callbacks" }
-    match '/auth/:service/callback' => 'services#create', via: %i(get post)
-    match '/auth/failure' => 'services#failure', via: %i(get post)
-    resources :services, only: %i(index create destroy)
+  root 'home#index'
+  devise_for :users, :controllers => {:registrations => "registrations",:omniauth_callbacks => "users/omniauth_callbacks" }
+  match '/auth/:service/callback' => 'services#create', via: %i(get post)
+  match '/auth/failure' => 'services#failure', via: %i(get post)
+  resources :services, only: %i(index create destroy)
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :categories
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
+  # resources :products do
+  # member do
+  # get 'short'
+  # post 'toggle'
+  # end
   #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  # collection do
+  # get 'sold'
+  # end
+  # end
 
   # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  # resources :products do
+  # resources :comments, :sales
+  # resource :seller
+  # end
 
   # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  # resources :products do
+  # resources :comments
+  # resources :sales do
+  # get 'recent', on: :collection
+  # end
+  # end
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # namespace :admin do
+  # # Directs /admin/products/* to Admin::ProductsController
+  # # (app/controllers/admin/products_controller.rb)
+  # resources :products
+  # end
 end

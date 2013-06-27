@@ -1,0 +1,5 @@
+<%= simple_form_for @category do |f| %>
+     <%= f.input :name %>
+     <%= f.button :submit, :class => "btn btn-success" %> <%= link_to 'cancle', categories_path,:class => "btn btn-success" %>
+
+<% end %>

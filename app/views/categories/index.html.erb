@@ -1,0 +1,44 @@
+<div id="category"></div>
+<br/>
+<%= link_to 'New Category', new_category_path,:class => "btn btn-success",:id=>"new_category",:remote => true %>
+<h1>Category Management</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category name</th>
+      <th>Category Date Added</th>
+      <th>Category Status </th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.category_date_added %></td>
+        <td><% if(category.category_status == true)%>
+         active
+           <% end %>
+          
+            
+          </td>
+        <td><%= link_to 'Edit', edit_category_path(category),:remote => true %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<div id="category"></div>
+<script>
+  $(document).ready(function(){
+    $('#new_category').click(function(e){
+       $(this).hide();
+    })
+  })
+</script>
