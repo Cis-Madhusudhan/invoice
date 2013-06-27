@@ -1,6 +1,7 @@
 <%if current_user%>
 <h1>
 Welcome </h1>
+<%= link_to 'create client', new_client_path %>
 <%else%>
 <div class="jumbotron">
   <% if user_signed_in? %>

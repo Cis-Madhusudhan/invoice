@@ -1,0 +1,58 @@
+<%= link_to 'New Client', new_client_path ,:class=>"btn btn-primary"%>
+<h1>Listing clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Business name</th>
+      <th>Business email</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Company size</th>
+      <th>Zip code</th>
+      <th>Mobile</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Fax</th>
+      <th>Internal notes</th>
+      <th>Business address</th>
+      <th>Business phone</th>
+      <th>Pan</th>
+      <th>Tan</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.business_name %></td>
+        <td><%= client.business_email %></td>
+        <td><%= client.name %></td>
+        <td><%= client.client_type %></td>
+        <td><%= client.company_size %></td>
+        <td><%= client.zip_code %></td>
+        <td><%= client.mobile %></td>
+        <td><%= client.state %></td>
+        <td><%= client.country_id %></td>
+        <td><%= client.fax %></td>
+        <td><%= client.internal_notes %></td>
+        <td><%= client.business_address %></td>
+        <td><%= client.business_phone %></td>
+        <td><%= client.pan %></td>
+        <td><%= client.tan %></td>
+        <td><%= client.city %></td>
+        <td><%= link_to 'Show', client ,:class=>"btn btn-info"%></td>
+        <td><%= link_to 'Edit', edit_client_path(client) ,:class=>" btn btn-warning"%></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn btn-danger"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

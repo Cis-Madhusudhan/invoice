@@ -1,0 +1,45 @@
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <fieldset>
+      <legend>Organization</legend>
+        <div class="span4">
+          <%= f.input :business_name ,:label =>"Business Name"%>
+          <%= f.input :pan ,:label => "PAN #"%>
+          <%= f.input :tan ,:label => "TAN #"%>
+        </div> 
+        <div class="span4">
+          <%= f.input :business_email ,:label =>"Business Email"%>
+          <%= f.input :name ,:label => "Client Name"%>
+          <%= f.input :client_type , :as => :select ,:label => "Type", :include_blank => false,:collection => [["Client", 1], ["Vendor", 2], ["Both(Client/Vendor)", 3]]%>
+        </div>  
+        <div class="span4">
+          <%= f.input :company_size , :as => :select ,:label => "Company Size", :include_blank => false,:collection => [["1-5", 1], ["6-15", 2], ["16-49", 3]]%>
+        </div>  
+     </fieldset>
+      <fieldset>
+      <legend>Contact Details</legend>
+        <div class="span4">
+           <%= f.input :business_address ,:label =>"Business Address"%>
+           <%= f.input :city ,:label =>"Town/City"%>
+           <%= f.input :zip_code ,:label =>"Postal/Zip Code"%>
+        </div> 
+        <div class="span4">
+          <%= f.input :mobile ,:label =>"Mobile"%>
+          <%= f.input :state ,:label =>"State/Province"%>
+          <%= f.input :country_id,:label =>"Country" %>
+          <%= f.input :fax ,:label =>"Fax"%>
+        </div>  
+        <div class="span4">
+         <%= f.input :internal_notes ,:label =>"Internal Notes"%>
+         <%= f.input :business_phone ,:label =>"Phone (Business)"%>
+
+        </div>  
+     </fieldset> 
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit ,:class=>"btn btn-success"%>
+  </div>
+<% end %>
