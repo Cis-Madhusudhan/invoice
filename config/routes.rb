@@ -11,6 +11,9 @@ InvoiceSignup::Application.routes.draw do
     match '/auth/:service/callback' => 'services#create', via: %i(get post)
     match '/auth/failure' => 'services#failure', via: %i(get post)
     resources :services, only: %i(index create destroy)
+
+   resources :tasks
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

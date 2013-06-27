@@ -1,0 +1,64 @@
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+    </div>
+    <div class="span8">
+      <!--Body content-->
+    <nav class="navigation">
+    <div class="navbar">
+    <div class="navbar-inner">
+      <h5>TASK INFO</h5>
+    </div>
+    </div>  
+      <div class="row-fluid">
+         <div class="span4"> 
+    
+<%= simple_form_for @task do |f| %>
+
+  <p>
+    <%= f.input :task_name %>
+  </p>
+  <p>
+    <%= f.input :estimated_hours%>
+  </p>
+  <p>
+    <%= f.input :priority, priority: ["None"], collection: [ "None", "Low", "Medium", "High"]%>
+  </p> 
+  <p>
+    <%= f.input :task_rate%>
+  <p>
+     </div>
+        <div class="span4"> 
+    
+  <p>
+    <%= f.label :Start_Date%>
+    <%= text_field_tag :start_date,nil,:id=>"start_date"%>
+  </p>  
+  <p>
+    <%= f.label :End_Date%>
+    <%= text_field_tag :end_date,nil,:id=>"end_date"%>
+  </p>  
+  <p>
+    <%= f.input :description%>
+  </p>  
+  
+       </div>
+     </div>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', tasks_path %>
+  </div>
+  <div class="span2">
+      <!--Sidebar content-->
+  </div>
+ </div>
+</div>
+
+<script>
+  $('#start_date,#end_date').datepicker({
+    format:'yyyy-mm-dd'});
+
+</script>

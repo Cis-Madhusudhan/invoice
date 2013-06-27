@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+    </div>
+    <div class="span8">
+      <!--Body content-->
+    <nav class="navigation">
+   
+     
+<div class="navbar">
+  <div class="navbar-inner navin">
+    <a class="brand" href="#">Task</a>
+    <%=link_to'new Task',new_task_path,:class =>"pull-right btn btn-primary"%>
+  </div>
+</div>
+
+
+<div class="ticket_index_div1">
+<table class="table table-striped table-hover" border="1">
+  <tr>
+   <th>Task Name</th>
+    <th>Estimated Hours</th>
+    <th>Priority</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Description</th>
+    <th>Task Rate</th>
+    
+  </tr>
+  
+  <tr>
+   <td><%=link_to "#{@task.task_name}",edit_task_path(@task) %></td>
+    <td><%= @task.estimated_hours %></td>
+    <td><%= @task.priority %></td>
+    <td><%= @task.start_date %></td>
+    <td><%= @task.end_date %></td>
+    <td><%= @task.description %></td>
+    <td><%= @task.task_rate %></td>
+  </tr>
+</table>
+<%= link_to 'Back', tasks_path %>
+</div>
+  <div class="span2">
+      <!--Sidebar content-->
+  </div>
+ </div>
+</div>
+
